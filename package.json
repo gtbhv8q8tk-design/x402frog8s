@@ -1,6 +1,6 @@
 {
-  "name": "x402frog8s_vercel",
-  "version": "1.0.1",
+  "name": "x402frog8s_vercel_final",
+  "version": "1.0.0",
   "main": "api/mint.js",
   "scripts": {
     "start": "node api/mint.js"
