@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
     const id = req.query.id ? Number(req.query.id) : 1;
 
     const payload = {
-      x402Version: "1.0.0",
+      x402Version: 1,
       amount: 1,
       currency: "USDC",
       tokenAddress: process.env.USDC_ADDRESS,
