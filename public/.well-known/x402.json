@@ -1,1 +1,7 @@
-
+{
+  "x402Version": 1,
+  "owner": "0x1DEf6d9E7ba7256dF17d01Bf7D8FA62d82A27Fc4",
+  "resources": [
+    "https://x402frog8s-oied.vercel.app/api/mint?id=1"
+  ]
+}
