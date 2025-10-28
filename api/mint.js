@@ -1,31 +1,26 @@
-const dotenv = require('dotenv');
-dotenv.config();
+export default async function handler(req, res) {
+  const response = {
+    x402Version: 1,
+    accepts: [
+      {
+        scheme: "exact",
+        network: "base",
+        maxAmountRequired: "1.0",
+        resource: "/api/mint?id=1",
+        description: "Mint a x402frog8s collectible (ERC-1155) for 1 USDC on Base.",
+        mimeType: "application/json",
+        payTo: "0x1DEf6d9E7ba7256dF17d01Bf7D8FA62d82A27Fc4",
+        maxTimeoutSeconds: 600,
+        asset: "USDC",
+        extra: {
+          name: "x402frog8s mint",
+          metadataURI: "https://ipfs.io/ipfs/bafybeiabfisrq64kdbutc4ysjrgfj3e56ggj3icqfnd5zuliuu3gmz4ti/",
+          tokenAddress: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          chainId: 8453
+        }
+      }
+    ]
+  };
 
-module.exports = async (req, res) => {
-  try {
-    if (req.method !== 'GET') {
-      res.setHeader('Allow', 'GET');
-      return res.status(405).json({ error: 'Method not allowed' });
-    }
-
-    const id = req.query.id ? Number(req.query.id) : 1;
-
-    const payload = {
-      x402Version: 1,
-      amount: 1,
-      currency: "USDC",
-      tokenAddress: process.env.USDC_ADDRESS,
-      receiver: process.env.TREASURY,
-      chainId: 8453,
-      resource: `/api/mint?id=${id}`,
-      name: "x402frog8s mint",
-      description: "Mint a x402frog8s collectible (ERC-1155) for 1 USDC on Base.",
-      metadataURI: "https://ipfs.io/ipfs/bafybeiabfisrq64kdbutc4ysjrgfjr3e56ggj3icqfnd5zuliuu3gmz4ti/"
-    };
-
-    res.status(402).json(payload);
-  } catch (err) {
-    console.error('mint error', err);
-    res.status(500).json({ error: String(err) });
-  }
-};
+  res.status(402).json(response);
+}
