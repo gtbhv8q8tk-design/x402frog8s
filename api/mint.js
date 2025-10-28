@@ -11,11 +11,11 @@ module.exports = async (req, res) => {
     const id = req.query.id ? Number(req.query.id) : 1;
 
     const payload = {
-      x402Version: 1,
+      x402Version: "1.0.0",
       amount: 1,
       currency: "USDC",
-      tokenAddress: process.env.USDC_ADDRESS || "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-      receiver: process.env.TREASURY || "0x1DEf6d9E7ba7256dF17d01Bf7D8FA62d82A27Fc4",
+      tokenAddress: process.env.USDC_ADDRESS,
+      receiver: process.env.TREASURY,
       chainId: 8453,
       resource: `/api/mint?id=${id}`,
       name: "x402frog8s mint",
